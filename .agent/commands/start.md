@@ -1,8 +1,8 @@
 # Start
 
-The entry point into Design Ops. The user may know nothing about this plugin, its 43
+The entry point into Design Ops. The user may know nothing about this plugin, its 46
 skill domains, or which of them they need. That is the normal case — do not
-expect them to know, and do not ask them to choose from a list of 43 things.
+expect them to know, and do not ask them to choose from a list of 46 things.
 
 ## If they described something
 
@@ -48,4 +48,4 @@ underlying rigor intact.
 
 If they ask what Design Ops can do, describe it in terms of outcomes — reviewing
 designs, building accessible components, setting up design systems, planning
-research, measuring whether it worked — not as a list of 43 skill names.
+research, measuring whether it worked — not as a list of 46 skill names.

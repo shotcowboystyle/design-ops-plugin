@@ -21,7 +21,7 @@
 | Upstream content not yet tailored to the user's workflows | Fresh fork | `.agent/` | Generic output | Planned follow-up session |
 | Unverified statistics (84 claims) | Inherited corpus | `extract-claims.py` output | Wrong numbers quoted as fact | Source or soften while customizing |
 | No script unit tests | Inherited | `scripts/` | Regressions in capture or scrape | Add a smoke test if the scripts change |
-| Validator count check skips `SKILL.md` and command bodies | Upstream scope | `validate-plugin.py` `check_counts` | Hardcoded "45 skills / 38 commands" in prose can drift again | Widen the targets if counts keep drifting |
+| Validator count check skips `SKILL.md` and command bodies | Upstream scope | `validate-plugin.py` `check_counts` | Hardcoded "46 skills / 39 commands" in prose can drift again | Widen the targets if counts keep drifting |
 
 ### 3) Security Concerns
 

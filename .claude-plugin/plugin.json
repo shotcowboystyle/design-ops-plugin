@@ -1,7 +1,7 @@
 {
   "name": "design-ops",
   "description": "UX/UI design ops — briefs, tokens, components, screens and pages, graded against live Awwwards and Mobbin references.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Curtis Blanton",
     "email": "public@shotcowboystyle.com",
@@ -42,6 +42,7 @@
     "./commands/responsive.md",
     "./commands/roast.md",
     "./commands/screen.md",
+    "./commands/scroll.md",
     "./commands/start.md",
     "./commands/status.md",
     "./commands/style.md",
@@ -86,6 +87,7 @@
     "./skills/reference-intelligence/",
     "./skills/responsive-block-patterns/",
     "./skills/screen-flow-patterns/",
+    "./skills/scroll-experience-direction/",
     "./skills/sector-style-intelligence/",
     "./skills/shadow-elevation-density/",
     "./skills/typography-pairing-recipes/",

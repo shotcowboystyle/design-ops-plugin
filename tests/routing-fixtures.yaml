@@ -218,3 +218,21 @@
   cluster: references
   why: "screen-flow-patterns calls itself Mobbin-style but can only describe
         patterns. Asking for Mobbin examples means sourced screens."
+
+# ---- cluster: scroll (scroll-experience-direction <-> animation-recipe-library)
+- id: scroll-cinematic-site
+  prompt: "build a cinematic scroll site for our product launch with depth and real brand assets"
+  expect: scroll-experience-direction
+  also_ok: [page-composition-engine]
+  forbid: [animation-recipe-library]
+  cluster: scroll
+  why: "A whole art-directed site, not a recipe. If animation-recipe-library wins,
+        'scroll' is outweighing 'cinematic site' and 'brand assets'."
+
+- id: scroll-depth-planes-phone
+  prompt: "layered hero where the product sits on a plinth with depth planes, plus a separate phone composition"
+  expect: scroll-experience-direction
+  also_ok: [image-media-patterns]
+  cluster: scroll
+  why: "Depth planes, contact anchors and phone art direction live only in
+        scroll-experience-direction. A miss means its description lost those terms."

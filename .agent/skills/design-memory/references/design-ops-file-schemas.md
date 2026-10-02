@@ -207,6 +207,22 @@ is watching a command that would otherwise appear to do nothing.
 }
 ```
 
+## `.design-ops/scroll/`
+
+Owned by `/scroll`. The full `plan.json` example lives in that command's Stage 3; the
+`assets.json` record lives in `scroll-experience-direction/references/interview-and-subject.md`.
+
+| File | Holds |
+| --- | --- |
+| `brief.md`, `subject.md`, `sourcing.md` | Interview, verified facts vs unverified, per-reference frame notes |
+| `plan.json` | `$design_ops`, curve, information order, grammar, signature, controls, close, `acts[]` (states, layers, anchors, route, phone), score, fingerprint, gate |
+| `assets.json` | `$design_ops`, `assets[]`: id, path, provenance (`authentic` / `user` / `generated`), source, shows, alpha, license, taskId |
+| `preamble.txt` | The per-project world preamble prepended to every generation |
+| `verify/` | `capture.mjs --frames` output: per-pass frames, `report.json`, contact sheets |
+
+Outside the project: `${DESIGN_OPS_HOME:-~/.design-ops}/fingerprints.ndjson`, one append-only
+row per shipped site, so the uniqueness gate holds across projects.
+
 ## `.design-ops/decisions.log`
 
 Append-only NDJSON, one object per line. Never rewritten, never sorted.

@@ -7,7 +7,7 @@ allowed-tools: Read, Grep, Glob
 
 # Design Ops Orchestrator
 
-Design Ops holds 45 skills and 38 commands. Most real requests need three to six skills
+Design Ops holds 46 skills and 39 commands. Most real requests need three to six skills
 in a particular order, and running them in the wrong order wastes work — you
 cannot critique a flow before you know who it is for, and you cannot set metrics
 before you know what good looks like.
@@ -38,7 +38,7 @@ app"), ask the qualifying questions below before routing.
 | Fix AI-generated UI that works but looks wrong | **Fix**         | `/fix`                          |
 | Design something that doesn't exist yet        | **Create**      | `/inspo` → `/style` → `/screen` |
 | Build or ship an actual component              | **Implement**   | `/component`                    |
-| Compose a whole page                           | **Compose**     | `/inspo` → `/page`, `/layout`   |
+| Compose a whole page                           | **Compose**     | `/inspo` → `/page`, `/scroll`   |
 | Generate design assets with AI                 | **Generate**    | `/generate`                     |
 | Start or scale a design system                 | **Systematize** | `/tokens`                       |
 | Move a design into code                        | **Handoff**     | `/figma`                        |
@@ -138,7 +138,8 @@ happy path is a mockup, not a design.
 ### Compose — building a whole page
 
 1. `sector-style-intelligence` — the register the page has to hit; `reference-intelligence`
-   when the bar is award-level (live Awwwards winners → Reference Board)
+   when the bar is award-level (live Awwwards winners → Reference Board);
+   `scroll-experience-direction` (`/scroll`) when the page is a cinematic scroll story
 2. `page-composition-engine` — block order, spacing rhythm, visual pacing
 3. `layout-block-intelligence` — the individual sections
 4. `micro-copy-intelligence` — headlines and body that carry the argument
@@ -288,7 +289,7 @@ and Fix run.
   the knowledge. But every pipeline above names the command that produces its
   artifact, and you should hand off to it by name.
 - **The chain is `/start` → orchestrator → pipeline → command.** This is why
-  `/start` never has to list 38 commands.
+  `/start` never has to list 39 commands.
 - **Convert and Localize have no command yet.** Run them as pipelines and say so.
 
 ## Operating rules

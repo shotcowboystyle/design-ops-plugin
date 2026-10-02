@@ -34,7 +34,7 @@ user request / slash command
 |-----------------|------|--------------|----------|
 | Orchestrator skill | Pipeline selection, stage gates, handoff artifacts | Domain content | `.agent/skills/design-ops-orchestrator/SKILL.md` |
 | Domain skills (44) | Knowledge and procedures per design domain | Cross-session state | `skills/*/SKILL.md` |
-| Commands (38) | User workflows, file I/O to `.design-ops/` within their owned subtree | Other commands' subtrees (read-only) | `skills/design-memory/SKILL.md` "Ownership" |
+| Commands (39) | User workflows, file I/O to `.design-ops/` within their owned subtree | Other commands' subtrees (read-only) | `skills/design-memory/SKILL.md` "Ownership" |
 | Agents (4) | Scout: source references. Art-director: direction/board. UX-architect: flows (`refs/mobbin.json`). Critic: grade | Building UI | `agents/*.md` |
 | Scripts | Deterministic capture/scrape and corpus validation | Prompt logic | `scripts/` |
 | `.design-ops/` (user project) | Persistent design decisions | — | `skills/design-memory/SKILL.md` |

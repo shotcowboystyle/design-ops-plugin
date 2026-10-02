@@ -1,6 +1,6 @@
 # Design Ops Plugin
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 
 UX/UI design ops for Claude Code: briefs, research, information architecture, visual
 identity, design tokens, components, screens and pages, accessibility, and builds graded
@@ -96,7 +96,7 @@ Manifest fields:
 - `/design-ops:brief [product or feature to define]` — Problem definition — persona, How Might We questions, constraints, success criteria, and a ready-to-paste Constraint Stack.
 - `/design-ops:component [component name and requirements]` — Production component builder — generate complete, runnable UI components (30+ types) with 10 states, full accessibility, design tokens, animation, tests, and platform code (React/SwiftUI/CSS).
 - `/design-ops:dark [existing palette or token file]` — Generate a complete dark mode system — oklch luminance mapping, surface elevation, accent adjustments, shadows, toggle component, and dark tokens.
-- `/design-ops:design-ops [optional: command or topic]` — Command map and quick start — see all 38 commands, starter recipes, Design Quality Score, anti-slop engine, and tips for best results. Start with /start if you are new.
+- `/design-ops:design-ops [optional: command or topic]` — Command map and quick start — see all 39 commands, starter recipes, Design Quality Score, anti-slop engine, and tips for best results. Start with /start if you are new.
 - `/design-ops:figma [Figma URL or design spec] [target platform]` — Generate production code from a Figma design specification using the MCP-powered design-to-code flywheel. Extracts tokens, components, and layout to produce platform-ready code.
 - `/design-ops:fix [file, component, or directory to fix]` — Anti-slop engine — takes AI-generated UI code and transforms it into production-quality design. Fixes typography, color, spacing, accessibility, and design consistency in one pass.
 - `/design-ops:form [form purpose and fields]` — Generate production forms — validation, error states, multi-step wizards, accessibility, complete React + Zod code.
@@ -119,6 +119,7 @@ Manifest fields:
 - `/design-ops:responsive [screen, block, or component]` — Generate responsive behavior for any screen or component — breakpoints, container queries, fluid scaling, block transformations, and touch targets.
 - `/design-ops:roast [design, screenshot, or file to critique]` — Quick brutal design critique — 10 dimensions scored, letter grade, top fixes, one-line verdict. Fast and opinionated.
 - `/design-ops:screen [screen type and requirements]` — Production screen builder — generate complete, runnable React/TypeScript + Tailwind screens for 30+ screen types with all states, accessibility, responsive breakpoints, dark mode, and token consumption.
+- `/design-ops:scroll [subject — product, brand, or place] [--continue | --stage N | --you-decide]` — Cinematic scroll site — interview, brand truth, live references, depth-plane plan, Kie AI assets, GSAP build, and frame-verified delivery graded against the board.
 - `/design-ops:start [optional: describe what you are working on]` — Start here. Figures out what you need and routes you to the right Design Ops skills — no prior knowledge of the plugin required.
 - `/design-ops:status [optional: project path]` — Progress dashboard — see what you've generated, what's available, and suggested next moves.
 - `/design-ops:style [product, sector, or mood]` — Generate a complete visual identity — colors, typography, spacing, motion, tone, tokens, and reference apps for any sector or mood.
@@ -164,6 +165,7 @@ Manifest fields:
 - **reference-intelligence** — Sources REAL design references instead of recalling them — award-winning live sites from Awwwards, app screens and flows from Mobbin (MCP), motion recipes from MotionSites (MCP) — captures them, measures their design DNA (type, color, spacing, grid, radius, motion stack), and synthesizes a Reference Board in .design-ops/refs/ that every MAKE and REVIEW command builds and grades against. Use when the user mentions: inspiration, inspo, references, reference sites, moodboard, Awwwards, SOTD, site of the day, Mobbin, MotionSites, 'make it look like', 'sites like', 'award-winning', 'best in class', examples of, what are the best sites for, reference board, steal like an artist, benchmark against real sites.
 - **responsive-block-patterns** — How every block and component transforms across breakpoints: container queries, fluid scaling, breakpoint transformation catalogs, responsive grids, and mobile-first CSS with production code. Use when a layout must survive small screens, or when specifying responsive behavior for handoff.
 - **screen-flow-patterns** — Taxonomy of 25+ screen types, 15+ user flows, and 25+ UI element deep-dives with layout patterns, component hierarchies, state matrices, and best-in-class references. Use when deciding which screens a product needs and what connects them, before any visual design starts.
+- **scroll-experience-direction** — Art-directs cinematic scroll sites around one subject: interview, verified brand assets and facts, live references, depth planes with contact anchors, opening/midpoint/exit states, photographic compositing or real 3D, Kie AI imagery, separate phone direction, a uniqueness gate against past builds, and frame-checked packaging. Use for premium launch, product or brand storytelling sites.
 - **sector-style-intelligence** — Visual direction by industry for 20+ sectors: color psychology, typography norms, component conventions, spacing philosophy, motion personality, trust signals, and sector anti-patterns. Use when a design must read as credible for fintech, healthcare, SaaS, e-commerce, or education.
 - **shadow-elevation-density** — Elevation, shadow, depth, and density systems: shadow scales, elevation hierarchy, glassmorphism, blur effects, border-radius systems, and compact, comfortable, and spacious density modes with production CSS. Use when surfaces look flat or float wrongly, or when tuning information density.
 - **typography-pairing-recipes** — 100+ font pairing recipes and type scale systems covering Google Fonts, system stacks, variable fonts, fluid clamp() scales, and platform-native type, each with display, body, and mono picks at exact weights and line-heights. Use when choosing fonts or building a type scale.

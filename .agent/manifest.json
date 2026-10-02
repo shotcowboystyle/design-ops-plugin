@@ -3,7 +3,7 @@
     "name": "design-ops",
     "displayName": "Design Ops",
     "description": "UX/UI design ops — briefs, tokens, components, screens and pages, graded against live Awwwards and Mobbin references.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "author": {
       "name": "Curtis Blanton",
       "email": "public@shotcowboystyle.com",
@@ -395,6 +395,19 @@
       "disableModelInvocation": false
     },
     {
+      "name": "scroll-experience-direction",
+      "summary": "Art-directs cinematic scroll sites around one subject: interview, verified brand assets and facts, live references, depth planes with contact anchors, opening/midpoint/exit states, photographic compositing or real 3D, Kie AI imagery, separate phone direction, a uniqueness gate against past builds, and frame-checked packaging. Use for premium launch, product or brand storytelling sites.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Bash(node *)",
+        "Bash(ffmpeg *)"
+      ],
+      "disableModelInvocation": false
+    },
+    {
       "name": "sector-style-intelligence",
       "summary": "Visual direction by industry for 20+ sectors: color psychology, typography norms, component conventions, spacing philosophy, motion personality, trust signals, and sector anti-patterns. Use when a design must read as credible for fintech, healthcare, SaaS, e-commerce, or education.",
       "tools": [
@@ -533,7 +546,7 @@
     },
     {
       "name": "design-ops",
-      "description": "Command map and quick start — see all 38 commands, starter recipes, Design Quality Score, anti-slop engine, and tips for best results. Start with /start if you are new.",
+      "description": "Command map and quick start — see all 39 commands, starter recipes, Design Quality Score, anti-slop engine, and tips for best results. Start with /start if you are new.",
       "argumentHint": "[optional: command or topic]"
     },
     {
@@ -645,6 +658,11 @@
       "name": "screen",
       "description": "Production screen builder — generate complete, runnable React/TypeScript + Tailwind screens for 30+ screen types with all states, accessibility, responsive breakpoints, dark mode, and token consumption.",
       "argumentHint": "[screen type and requirements]"
+    },
+    {
+      "name": "scroll",
+      "description": "Cinematic scroll site — interview, brand truth, live references, depth-plane plan, Kie AI assets, GSAP build, and frame-verified delivery graded against the board.",
+      "argumentHint": "[subject — product, brand, or place] [--continue | --stage N | --you-decide]"
     },
     {
       "name": "start",

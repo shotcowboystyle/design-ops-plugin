@@ -805,6 +805,7 @@ _Costs vary by model, resolution, and number of iterations. Estimates assume 2-3
 - **`color-palette-library`** — Curated palettes for color-accurate generation prompts.
 - **`typography-pairing-recipes`** — Type system knowledge for typography-aware generation.
 - **`animation-recipe-library`** — Motion design knowledge for video generation prompts.
+- **`scroll-experience-direction`** — Kie AI stills, image-to-video shots and background removal for scroll sites (`kie-ai.md`).
 
 ## Commands Powered by This Skill
 

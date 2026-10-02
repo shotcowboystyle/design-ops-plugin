@@ -4,10 +4,10 @@ A visual progress tracker showing what Design Ops commands have been run in this
 
 ## Command Registry
 
-All 38 commands organized by tier:
+All 39 commands organized by tier:
 
-**MAKE (20 commands)**:
-`/fix`, `/style`, `/palette`, `/type`, `/layout`, `/wireframe`, `/screen`, `/component`, `/page`, `/tokens`, `/form`, `/nav`, `/animate`, `/icon`, `/dark`, `/responsive`, `/onboard`, `/generate`, `/remix`, `/figma`
+**MAKE (21 commands)**:
+`/fix`, `/style`, `/palette`, `/type`, `/layout`, `/wireframe`, `/screen`, `/component`, `/page`, `/tokens`, `/form`, `/nav`, `/animate`, `/icon`, `/dark`, `/responsive`, `/onboard`, `/generate`, `/remix`, `/figma`, `/scroll`
 
 **REVIEW (7 commands)**:
 `/audit`, `/roast`, `/grade`, `/qa`, `/a11y`, `/before-after`, `/ai-audit`
@@ -65,7 +65,8 @@ Render the progress map with completion status.
   [ ] /generate      AI generation
   [ ] /remix         Evidence-based redesign
   [ ] /figma         Figma design to code
-  MAKE: 0/20
+  [ ] /scroll        Cinematic scroll site
+  MAKE: 0/21
 
 ### REVIEW — Evaluate and Improve
   [ ] /audit         Full design audit
@@ -88,7 +89,7 @@ Render the progress map with completion status.
   PLAN: 0/7
 
 ──────────────────────────────────────
-Overall: 0/38 commands  |  Next → /style
+Overall: 0/39 commands  |  Next → /style
 ──────────────────────────────────────
 
 Run /next for guidance  |  /design-ops for full map
