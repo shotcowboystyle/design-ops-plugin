@@ -1,0 +1,722 @@
+{
+  "plugin": {
+    "name": "design-ops",
+    "displayName": "Design Ops",
+    "description": "UX/UI design ops — briefs, tokens, components, screens and pages, graded against live Awwwards and Mobbin references.",
+    "version": "1.1.0",
+    "author": {
+      "name": "Curtis Blanton",
+      "email": "public@shotcowboystyle.com",
+      "url": "https://shotcowboystyle.com"
+    },
+    "license": "Apache-2.0",
+    "repository": "https://github.com/shotcowboystyle/design-ops-plugin",
+    "category": "Design",
+    "tags": [
+      "design",
+      "ux",
+      "ui",
+      "design-system"
+    ],
+    "keywords": [
+      "ux",
+      "ui",
+      "design-system",
+      "design-tokens",
+      "accessibility",
+      "figma",
+      "awwwards",
+      "mobbin"
+    ]
+  },
+  "skills": [
+    {
+      "name": "accessibility-inclusive-design",
+      "summary": "WCAG 2.2 compliance, ARIA authoring patterns, screen reader and keyboard navigation, color contrast, and cognitive/neurodiversity accommodations. Use when auditing accessibility, fixing a11y violations, choosing ARIA roles, checking contrast ratios, or designing for ADHD, dyslexia, autism, or motor impairment.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "agentic-ai-generative-ux",
+      "summary": "Design patterns for agentic AI: multi-agent orchestration UX, generative UI, RAG interfaces, LLM hallucination guardrails, confidence indicators, and trust calibration. Use when designing AI copilots or autonomous agents, adding verification affordances, or auditing an AI feature for safety, control, and consent.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ai-design-generation",
+      "summary": "Produce visual assets from AI image and UI models through MCP — Stitch screens, Fal.ai (Imagen, FLUX, Veo), Recraft V3 vectors, GPT-Image and Figma file access — with prompt patterns and quality scoring. Use when rendering mockups, icons, illustrations or video. Not for interface copy; not for agent UX.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ai-spatial-voice-ux",
+      "summary": "AI-native interface patterns, conversational and voice UX, spatial computing (AR/VR/MR), and multimodal interaction. Use when designing a chatbot or assistant, a voice-first flow, headset or mixed-reality UI, or when combining speech, gaze, and gesture input.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ambient-calm-zero-ui",
+      "summary": "Calm technology principles, zero-UI and screenless patterns, ambient displays, proactive intelligence, and peripheral attention design. Use when designing smart home, automotive, wearable, or background-intelligence experiences, or reducing notification and attention load.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "animation-recipe-library",
+      "summary": "200+ copy-paste animation recipes in CSS, Framer Motion, and GSAP: entrances, micro-interactions, page transitions, scroll-driven effects, spring physics, and cursor and text effects, each with timing, easing, and a reduced-motion fallback. Use when you need working motion code rather than motion principles.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "business-design-templates",
+      "summary": "Client-facing design deliverables: proposals, SOWs, case studies, pitch decks, pricing calculators, project briefs, and handoff documentation. Use when packaging design work for a client, an executive, or a portfolio — the artifact that leaves the team, not the interface itself.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "cognitive-psychology-ux",
+      "summary": "Laws of UX (Fitts, Hick, Miller, Jakob, Peak-End, Doherty), Gestalt principles, cognitive biases, mental models, attention, and memory constraints. Use when auditing cognitive load, sizing tap targets, reducing choice overload, fixing decision fatigue, or grounding a design decision in research.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "color-palette-library",
+      "summary": "500+ ready-made color palettes with contrast scores, plus OKLCH palette generation, dark-mode luminance mapping, semantic color architecture, and data-viz scales. Use when picking or generating a specific palette. For color theory and hierarchy craft, use ui-visual-design-system.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "component-patterns-code",
+      "summary": "Production UI component code in React/TypeScript, SwiftUI, and modern CSS with full state matrices, ARIA attributes, keyboard handling, and design token consumption. Use when building or reviewing a button, modal, form, input, table, or any component that needs all of its states covered.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "conversion-optimization-patterns",
+      "summary": "Evidence-based conversion patterns: CTA design, pricing page psychology, form and checkout friction, trust signals, social proof placement, urgency, and funnel analysis. Use when asking why people are not finishing a flow, or optimizing signup, cart, or pricing for completion.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "cross-cultural-i18n-ux",
+      "summary": "Internationalization and localization: RTL layouts with CSS logical properties, CJK typography, text expansion, locale-aware formatting, cultural color semantics, and Hofstede's dimensions applied to interfaces. Use when shipping to new markets, adding Arabic or Hebrew support, or pseudo-localization testing.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "data-visualization-mastery",
+      "summary": "50+ chart types with selection criteria, dashboard composition, data tables, KPI cards, sparklines, heatmaps, and accessible data presentation, with React code (Recharts, D3, Nivo) and data-viz tokens. Use when designing charts, dashboards, or any data-dense screen.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "design-critique-case-studies",
+      "summary": "Structured design critique using the Liz Lerman Critical Response Process, plus deep-dives on Stripe, Linear, Notion, Airbnb, Figma, and Arc, and post-mortems of redesign failures like Snapchat 2018 and Sonos 2024. Use when running a critique session, giving design feedback, or learning from a shipped product.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "design-memory",
+      "summary": "The .design-ops/ design memory contract — which files exist, the canonical style.json schema, which command owns which subtree, read order, and merge rules. Use whenever a command reads or writes .design-ops/, or when design decisions from an earlier command must survive into a later one.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Write",
+        "Edit"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "design-ops-orchestrator",
+      "summary": "Routes any UX/UI request to the right Design Ops skills in the right order, with stage gates and handoffs. Use when the user asks where to start, what comes next, what the process is, or wants a full design engagement run end to end — and whenever a request is broad enough to need more than one skill (redesign, launch, audit, new product, design system).",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "design-process-methods",
+      "summary": "Design process methodology: NNG's six phases, Double Diamond, Google Design Sprint, IDEO, Lean UX, and the bridge from AI-assisted building to evidence-based UX. Use when framing how the work should run, planning a sprint, or grounding a build in Empathize, Define, Ideate, Prototype, Test.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "design-systems-architecture",
+      "summary": "Design system architecture: W3C design tokens, Style Dictionary pipelines, component library structure, theming, multi-brand token tiers, governance, versioning, and maturity models. Use when starting or scaling a design system, generating tokens, or setting up design-to-code distribution.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "design-token-presets",
+      "summary": "20+ ready-to-deploy token systems by industry vertical, each in W3C DTCG JSON, CSS custom properties, and Tailwind v4 @theme, with Style Dictionary config and Figma Variables mapping. Use when you want a vetted starting token set. For architecting your own, use design-systems-architecture.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "desktop-app-design",
+      "summary": "Desktop and enterprise application patterns: data-dense interfaces, dashboards, data tables, keyboard-first interaction, multi-window layouts, and data visualization. Use when designing an admin panel, analytics dashboard, or professional tool with complex workflows.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "figma-design-tool-workflows",
+      "summary": "Figma mastery and design-to-code: Auto Layout, component architecture, variable modes, Dev Mode handoff, Figma MCP server integration, Code Connect, and token pipelines. Use when working in Figma, converting designs to code, or setting up a design-to-code flywheel.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "form-design-encyclopedia",
+      "summary": "200+ form patterns covering every input type, layout, validation strategy, multi-step wizard, and error state, with production React and CSS, accessibility requirements, and mobile optimization. Use when building or fixing a form, choosing a validation approach, or reducing abandonment on signup and checkout.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "icon-illustration-systems",
+      "summary": "Icon and illustration systems: grid and sizing scales, library selection (Lucide, Heroicons, Phosphor, SF Symbols, Material Symbols), illustration style guides, SVG optimization, and accessible iconography. Use when choosing an icon set, sizing icons, or establishing an illustration style.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "image-media-patterns",
+      "summary": "Image, video, and media UI patterns: hero and product imagery, galleries, carousels, video and audio players, avatars, thumbnails, aspect ratios, cropping, lazy loading, responsive images, and media accessibility. Use when placing media on a page or building a gallery or player.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "interaction-motion-design",
+      "summary": "Micro-interactions, animation timing and easing curves, spring physics, transition choreography, haptic feedback vocabularies, and emotional design. Use when adding or reviewing animation, tuning motion duration, designing haptics, or supporting prefers-reduced-motion.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "layout-block-intelligence",
+      "summary": "500+ individual section patterns — heroes, feature grids, pricing tables, testimonials, CTAs, footers, FAQs, stats, timelines — each with specs, spacing, and code. Use when choosing or building one section. For ordering sections into a whole page, use page-composition-engine.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "micro-copy-intelligence",
+      "summary": "1000+ microcopy and UX-writing templates by component, tone and sector: button labels, every error message and failure state, empty states, tooltips, confirmations, permission requests and notifications. Use when writing any interface string — robotic copy is the loudest slop tell.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "mobile-ux-design",
+      "summary": "Mobile-first design: touch targets, gesture systems, thumb zones, responsive layout, mobile forms and navigation, iOS 26 Liquid Glass, Material 3 Expressive, and wearable/IoT patterns. Use when designing or auditing an iOS, Android, or responsive mobile experience.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "navigation-pattern-encyclopedia",
+      "summary": "Every navigation pattern with specs, trade-offs, and production code: top bars, sidebars, bottom tabs, mega menus, breadcrumbs, command palettes, and contextual and mobile navigation. Use when choosing a nav model, fixing discoverability, or structuring information architecture.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "nng-ux-heuristics",
+      "summary": "Jakob Nielsen's 10 usability heuristics with modern interpretation, evaluation protocol, and 0-4 severity rating scale. Use when running a heuristic evaluation or usability review, rating the severity of a finding, or grounding UX feedback in established principles.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "page-composition-engine",
+      "summary": "100+ full-page recipes giving exact block order, spacing rhythm, visual pacing, and content hierarchy for landing pages, dashboards, e-commerce, auth, settings, and profiles. Use when composing a whole page. For a single section in isolation, use layout-block-intelligence.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "performance-states-patterns",
+      "summary": "Perceived performance and state design: skeleton screens, optimistic UI, progressive loading, notification architecture (toast, banner, badge, push), and empty, error, offline, and onboarding states. Use when a UI feels slow, or when specifying what a screen shows before, during, and after data arrives.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "platform-visual-standards",
+      "summary": "Current platform visual standards: iOS 26 Liquid Glass and SF Symbols 7, Material 3 Expressive (HCT, Dynamic Color, spring physics), web CSS 2025-2026 (container queries, view transitions, anchor positioning), plus watchOS, tvOS, and automotive. Use when a design must feel native to its platform.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "reference-intelligence",
+      "summary": "Sources REAL design references instead of recalling them — award-winning live sites from Awwwards, app screens and flows from Mobbin (MCP), motion recipes from MotionSites (MCP) — captures them, measures their design DNA (type, color, spacing, grid, radius, motion stack), and synthesizes a Reference Board in .design-ops/refs/ that every MAKE and REVIEW command builds and grades against. Use when the user mentions: inspiration, inspo, references, reference sites, moodboard, Awwwards, SOTD, site of the day, Mobbin, MotionSites, 'make it look like', 'sites like', 'award-winning', 'best in class', examples of, what are the best sites for, reference board, steal like an artist, benchmark against real sites.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob",
+        "Bash(node *)",
+        "Write"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "responsive-block-patterns",
+      "summary": "How every block and component transforms across breakpoints: container queries, fluid scaling, breakpoint transformation catalogs, responsive grids, and mobile-first CSS with production code. Use when a layout must survive small screens, or when specifying responsive behavior for handoff.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "screen-flow-patterns",
+      "summary": "Taxonomy of 25+ screen types, 15+ user flows, and 25+ UI element deep-dives with layout patterns, component hierarchies, state matrices, and best-in-class references. Use when deciding which screens a product needs and what connects them, before any visual design starts.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "sector-style-intelligence",
+      "summary": "Visual direction by industry for 20+ sectors: color psychology, typography norms, component conventions, spacing philosophy, motion personality, trust signals, and sector anti-patterns. Use when a design must read as credible for fintech, healthcare, SaaS, e-commerce, or education.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "shadow-elevation-density",
+      "summary": "Elevation, shadow, depth, and density systems: shadow scales, elevation hierarchy, glassmorphism, blur effects, border-radius systems, and compact, comfortable, and spacious density modes with production CSS. Use when surfaces look flat or float wrongly, or when tuning information density.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "typography-pairing-recipes",
+      "summary": "100+ font pairing recipes and type scale systems covering Google Fonts, system stacks, variable fonts, fluid clamp() scales, and platform-native type, each with display, body, and mono picks at exact weights and line-heights. Use when choosing fonts or building a type scale.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ui-pattern-intelligence",
+      "summary": "200+ UI patterns across 10 categories, benchmark DNA from 50+ world-class products, sector pattern matrices, a matcher for code and screenshots, and a 100+ entry anti-pattern encyclopedia. Use when detecting AI slop, judging whether a pattern is standard, or matching how a known product feels.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ui-visual-design-system",
+      "summary": "Visual design craft: typography scales, color theory (OKLCH, color-mix, light-dark), spacing systems, grids, visual hierarchy, elevation, iconography, and modern CSS (container queries, :has(), subgrid, @layer). Use when setting type and color, fixing hierarchy, or building a visual language.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ux-ethics-content-strategy",
+      "summary": "Dark pattern detection and avoidance, persuasive vs. manipulative design, privacy UX, the regulatory landscape, sustainable/green UX, and UX writing with a microcopy library of action verbs, error messages, and empty-state copy. Use when writing interface copy or auditing a flow for manipulation.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ux-metrics-measurement",
+      "summary": "UX measurement: HEART framework, SUS, UEQ, SUPR-Q, task success and time-on-task metrics, A/B testing statistics, AI-specific metrics, and design system ROI. Use when defining UX KPIs, building a measurement plan, interpreting a usability score, or proving UX impact.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "ux-research-methods",
+      "summary": "UX research methodology: usability testing protocols, user interviews, contextual inquiry, surveys, card sorting, and diary studies, plus synthesis frameworks including JTBD, journey mapping, and affinity diagramming. Use when planning a study, writing a discussion guide, or analyzing research data.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    },
+    {
+      "name": "visual-design-mastery",
+      "summary": "Designer-grade visual judgement: 36+ designer pattern libraries, 70 canonical rules from 23 books, Awwwards-calibrated 10-dimension scoring, color science (OKLCH, HCT), and composition (Swiss grid, golden ratio, visual weight). Use when scoring visual quality or when work looks cheap but you cannot say why.",
+      "tools": [
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      "disableModelInvocation": false
+    }
+  ],
+  "commands": [
+    {
+      "name": "a11y",
+      "description": "Accessibility audit — WCAG 2.2 AA full checklist, ARIA audit, keyboard navigation, color contrast (APCA), focus management, screen reader, cognitive a11y, with code fixes.",
+      "argumentHint": "[file, component, or screen to audit]"
+    },
+    {
+      "name": "ai-audit",
+      "description": "Audit AI-powered features against agentic, trust, safety, and interaction best practices with scoring and specific fix recommendations.",
+      "argumentHint": "[AI feature, file, or description]"
+    },
+    {
+      "name": "animate",
+      "description": "Generate production animations — CSS keyframes, Framer Motion, scroll-driven, micro-interactions, with reduced motion fallbacks.",
+      "argumentHint": "[element or interaction to animate]"
+    },
+    {
+      "name": "audit",
+      "description": "Comprehensive design audit — heuristic, cognitive, flow, fortification, cognitive load analysis, and summary scoring in one command. Run all lenses or pick specific sections.",
+      "argumentHint": "[product, screen, or codebase] [optional: section]"
+    },
+    {
+      "name": "before-after",
+      "description": "Before/after comparison — show exactly how AI-generated slop transforms into production-quality UI. Visual proof of every design improvement.",
+      "argumentHint": "[file or component to compare]"
+    },
+    {
+      "name": "benchmark",
+      "description": "Competitive analysis — 10-dimension scorecard, gap analysis, improvement roadmap, and differentiation strategy.",
+      "argumentHint": "[product or competitor set]"
+    },
+    {
+      "name": "brief",
+      "description": "Problem definition — persona, How Might We questions, constraints, success criteria, and a ready-to-paste Constraint Stack.",
+      "argumentHint": "[product or feature to define]"
+    },
+    {
+      "name": "component",
+      "description": "Production component builder — generate complete, runnable UI components (30+ types) with 10 states, full accessibility, design tokens, animation, tests, and platform code (React/SwiftUI/CSS).",
+      "argumentHint": "[component name and requirements]"
+    },
+    {
+      "name": "dark",
+      "description": "Generate a complete dark mode system — oklch luminance mapping, surface elevation, accent adjustments, shadows, toggle component, and dark tokens.",
+      "argumentHint": "[existing palette or token file]"
+    },
+    {
+      "name": "design-ops",
+      "description": "Command map and quick start — see all 38 commands, starter recipes, Design Quality Score, anti-slop engine, and tips for best results. Start with /start if you are new.",
+      "argumentHint": "[optional: command or topic]"
+    },
+    {
+      "name": "figma",
+      "description": "Generate production code from a Figma design specification using the MCP-powered design-to-code flywheel. Extracts tokens, components, and layout to produce platform-ready code.",
+      "argumentHint": "[Figma URL or design spec] [target platform]"
+    },
+    {
+      "name": "fix",
+      "description": "Anti-slop engine — takes AI-generated UI code and transforms it into production-quality design. Fixes typography, color, spacing, accessibility, and design consistency in one pass.",
+      "argumentHint": "[file, component, or directory to fix]"
+    },
+    {
+      "name": "form",
+      "description": "Generate production forms — validation, error states, multi-step wizards, accessibility, complete React + Zod code.",
+      "argumentHint": "[form purpose and fields]"
+    },
+    {
+      "name": "generate",
+      "description": "AI design generation — mockups, icons, illustrations, images via Stitch MCP, Fal.ai, Recraft V3, Veo 3.1",
+      "argumentHint": "[asset type and description]"
+    },
+    {
+      "name": "grade",
+      "description": "Visual quality scoring — Awwwards-calibrated 10-dimension assessment, designer DNA match, canonical rule compliance, production quality verdict.",
+      "argumentHint": "[design, screenshot, or file to score]"
+    },
+    {
+      "name": "icon",
+      "description": "Generate an icon system — library selection, sizing tokens, React wrapper component, animated recipes, SVG optimization, and accessibility.",
+      "argumentHint": "[icon set or product context]"
+    },
+    {
+      "name": "inspo",
+      "description": "Source REAL references — live Awwwards winners, Mobbin screens and flows, MotionSites motion recipes — capture the sites, measure their design DNA, and build a Reference Board in .design-ops/refs/ that later commands design and grade against.",
+      "argumentHint": "[brief, flow, or URLs — e.g. \"fintech landing, dark, editorial\"]"
+    },
+    {
+      "name": "layout",
+      "description": "Generate responsive page layouts — CSS Grid, Flexbox, container queries, spacing rhythm, breakpoint transformations.",
+      "argumentHint": "[page or section to lay out]"
+    },
+    {
+      "name": "map",
+      "description": "Information architecture — sitemap, navigation model, content hierarchy, cross-linking map, URL structure, and search strategy.",
+      "argumentHint": "[product or content to structure]"
+    },
+    {
+      "name": "measure",
+      "description": "Metrics plan — HEART framework, OKRs, experimentation strategy, dashboards, and baseline measurement.",
+      "argumentHint": "[product or feature to measure]"
+    },
+    {
+      "name": "nav",
+      "description": "Generate responsive navigation systems — top bar, sidebar, bottom tabs, command palette, mega menu, with ARIA and dark mode.",
+      "argumentHint": "[product and navigation type]"
+    },
+    {
+      "name": "next",
+      "description": "Context-aware suggestion of what to do next based on what you've generated so far.",
+      "argumentHint": "[optional: current focus]"
+    },
+    {
+      "name": "onboard",
+      "description": "Generate a complete onboarding flow — step sequence, progressive disclosure, permission timing, empty states, activation metrics, and production React code.",
+      "argumentHint": "[product and first-run goal]"
+    },
+    {
+      "name": "page",
+      "description": "Full page builder — generate complete, runnable marketing and product pages with ordered block stacking, SEO, Open Graph, scroll animations, lazy loading, and responsive composition.",
+      "argumentHint": "[page type and purpose]"
+    },
+    {
+      "name": "palette",
+      "description": "Generate a deep color system — oklch palettes, APCA contrast scores, dark mode, data-viz colors, gradients, and CSS custom properties.",
+      "argumentHint": "[brand, mood, or existing colors]"
+    },
+    {
+      "name": "preflight",
+      "description": "Pre-launch checklist and post-launch plan — SEO, performance, analytics, legal, security, monitoring, feedback loops, iteration strategy.",
+      "argumentHint": "[product or release to check]"
+    },
+    {
+      "name": "qa",
+      "description": "Design QA — verify implementation matches design spec. Token compliance, state coverage, responsive fidelity, accessibility, pixel-level issues.",
+      "argumentHint": "[implementation and design spec to compare]"
+    },
+    {
+      "name": "remix",
+      "description": "Redesign existing UI — fix top problems with UX reasoning for every change",
+      "argumentHint": "[file, component, or screen to redesign]"
+    },
+    {
+      "name": "research",
+      "description": "User research and usability testing — interview guides, survey design, test plans, recruitment, and analysis frameworks.",
+      "argumentHint": "[research question or product area]"
+    },
+    {
+      "name": "responsive",
+      "description": "Generate responsive behavior for any screen or component — breakpoints, container queries, fluid scaling, block transformations, and touch targets.",
+      "argumentHint": "[screen, block, or component]"
+    },
+    {
+      "name": "roast",
+      "description": "Quick brutal design critique — 10 dimensions scored, letter grade, top fixes, one-line verdict. Fast and opinionated.",
+      "argumentHint": "[design, screenshot, or file to critique]"
+    },
+    {
+      "name": "screen",
+      "description": "Production screen builder — generate complete, runnable React/TypeScript + Tailwind screens for 30+ screen types with all states, accessibility, responsive breakpoints, dark mode, and token consumption.",
+      "argumentHint": "[screen type and requirements]"
+    },
+    {
+      "name": "start",
+      "description": "Start here. Figures out what you need and routes you to the right Design Ops skills — no prior knowledge of the plugin required.",
+      "argumentHint": "[optional: describe what you are working on]"
+    },
+    {
+      "name": "status",
+      "description": "Progress dashboard — see what you've generated, what's available, and suggested next moves.",
+      "argumentHint": "[optional: project path]"
+    },
+    {
+      "name": "style",
+      "description": "Generate a complete visual identity — colors, typography, spacing, motion, tone, tokens, and reference apps for any sector or mood.",
+      "argumentHint": "[product, sector, or mood]"
+    },
+    {
+      "name": "tokens",
+      "description": "Generate a complete W3C DTCG design token system — primitives, semantics, component tokens, multi-theme, with CSS/Tailwind/Style Dictionary output.",
+      "argumentHint": "[brand requirements or existing palette]"
+    },
+    {
+      "name": "type",
+      "description": "Generate a complete typography system — font pairing, modular type scale with fluid clamp() values, line-height, letter-spacing, and platform stacks.",
+      "argumentHint": "[brand voice or existing fonts]"
+    },
+    {
+      "name": "wireframe",
+      "description": "Generate low-fidelity ASCII wireframes with layout alternatives and interaction notes",
+      "argumentHint": "[screen or flow to wireframe]"
+    }
+  ],
+  "agents": [
+    {
+      "name": "art-director",
+      "description": "Design Ops art director. Turns captured references (.design-ops/refs/*/dna.json + screenshots) into a Reference Board, which is a tokenized direction with one stolen trait per reference, a category-norm list, an avoid list and a rejected list, written to .design-ops/refs/board.md + board.json for /style to turn into tokens. Also receives the critic's below-the-wall fixes and revises direction. Use after /inspo captures, or when a build keeps failing the same dimension.",
+      "tools": [
+        "Read",
+        "Write",
+        "Edit",
+        "Bash"
+      ]
+    },
+    {
+      "name": "critic",
+      "description": "Design Ops critic. Grades a built page or screen SIDE BY SIDE against the Reference Board. It captures the build with the same scripts/capture.mjs, diffs its measured DNA against board.json, scores the build and the best reference on the same 10 dimensions, and returns a DQS, per-dimension deltas and a routed fix list. Use after /page, /screen or /remix produce something runnable, before shipping, or whenever someone asks \"is this good enough?\"",
+      "tools": [
+        "Bash",
+        "Read",
+        "Write"
+      ]
+    },
+    {
+      "name": "scout",
+      "description": "Design Ops reference scout. Sources REAL design references for a brief (Awwwards award winners via scripts/awwwards.mjs, Mobbin screens and flows via the Mobbin MCP, MotionSites motion recipes), captures the live sites with scripts/capture.mjs in one call, and returns a shortlist with measured DNA. Use when a design task needs references, inspiration, \"sites like X\", or a refreshed .design-ops/refs/ board. Never recalls references from memory.",
+      "tools": [
+        "Bash",
+        "Read",
+        "Write",
+        "WebFetch",
+        "ToolSearch"
+      ]
+    },
+    {
+      "name": "ux-architect",
+      "description": "Design Ops UX architect. Designs flows, screen inventory, IA and states from REAL app patterns sourced through the Mobbin MCP (plus screen-flow-patterns taxonomy), and records them in .design-ops/refs/mobbin.json. Use for onboarding, checkout, signup, paywall, settings, dashboards, or any multi-screen product flow, and before /wireframe or /screen on app UI.",
+      "tools": [
+        "Read",
+        "Write",
+        "Bash",
+        "ToolSearch"
+      ]
+    }
+  ]
+}

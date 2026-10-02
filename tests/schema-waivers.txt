@@ -1,0 +1,9 @@
+# Artifacts known to be written with more than one top-level schema.
+# A waiver here silences check_artifact_schemas for that path.
+#
+# Fixing a conflict means DELETING its line from this file. That is the point:
+# the incentive to fix is a visible line of debt, not silence.
+#
+# Empty as of v4.1.0. .design-ops/style.json had SIX writers in four shapes
+# (/style twice, /palette, /type, /tokens, /dark); they now share the one
+# envelope defined by the design-memory skill.
