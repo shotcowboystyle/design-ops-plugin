@@ -73,6 +73,7 @@ list of reference apps.
 | `.design-ops/wireframe-<screen>.json` | `/wireframe`                                      | layout structure, component map                                                                              |
 | `.design-ops/generated-<asset>.json`  | `/generate`                                       | generation records, prompts, model, score                                                                    |
 | `.design-ops/refs/`                   | `/inspo`                                          | sourced references, captures, `board.json`. Schema in `reference-intelligence/references/board-synthesis.md` |
+| `.design-ops/scroll/`                 | `/scroll`                                         | brief, subject truth, `plan.json`, `assets.json`, verify frames. Schema in `design-ops-file-schemas.md`      |
 | `.design-ops/decisions.log`           | any command                                       | append-only NDJSON: `{ts, command, decision, reason, overrides}`                                             |
 
 ## Ownership
@@ -88,6 +89,7 @@ commands to share one file without clobbering each other.
 | `/tokens`       | `tokens.*` (serialization only; it does not decide)        |
 | `/dark`         | `tokens.$themes.dark`                                      |
 | `/inspo`        | `.design-ops/refs/` only                                   |
+| `/scroll`       | `.design-ops/scroll/`, and appends to the global `~/.design-ops/fingerprints.ndjson` |
 | everything else | **read-only**                                              |
 
 ## Read order

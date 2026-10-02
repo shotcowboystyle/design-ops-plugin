@@ -7,6 +7,12 @@
 // Usage:
 //   node scripts/capture.mjs <url> [url…] [--out .design-ops/refs] [--steps 4]
 //   node scripts/capture.mjs --from .design-ops/refs/awwwards.json [--pick slug1,slug2]
+//   node scripts/capture.mjs <url> --frames [--passes desktop,phone,compact,reduced,nojs,nowebgl]
+//
+// --frames also samples every act (each [data-act], else each top-level section) at its
+// entry, midpoint and exit, once per pass, and flags dead scroll, horizontal overflow,
+// console errors and failed requests in <slug>/frames/report.json. With ffmpeg on PATH,
+// each pass also gets a contact sheet.
 //
 // puppeteer-core is NOT a Design Ops dependency. It is resolved, in order, from
 // $DESIGN_OPS_PUPPETEER_DIR, then the current project. Chrome is found in the
@@ -20,6 +26,8 @@ import {
   readdirSync,
   writeFileSync,
 } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -29,9 +37,17 @@ const flag = (name, dflt) => {
   const i = args.indexOf(`--${name}`);
   return i === -1 ? dflt : args[i + 1];
 };
-const VALUED = ["out", "steps", "from", "pick"];
+const VALUED = ["out", "steps", "from", "pick", "passes"];
 const outRoot = resolve(flag("out", ".design-ops/refs"));
 const steps = Math.max(1, Math.min(Number(flag("steps", 4)) || 4, 8));
+const frameMode = args.includes("--frames");
+const PASS_NAMES = ["desktop", "phone", "compact", "reduced", "nojs", "nowebgl"];
+const passes = flag("passes", PASS_NAMES.join(",")).split(",").map((s) => s.trim());
+const badPass = passes.find((p) => !PASS_NAMES.includes(p));
+if (badPass) {
+  console.error(`unknown pass "${badPass}"; use: ${PASS_NAMES.join(",")}`);
+  process.exit(1);
+}
 
 let targets = args
   .filter(
@@ -204,21 +220,34 @@ async function dismissConsent(page) {
 // Scroll with real wheel input: programmatic scrollTo is ignored by Lenis and
 // Locomotive, which is how a capture ends up with N copies of the hero.
 async function wheelTo(page, fraction) {
-  const { height, vh, y } = await page.evaluate(() => ({
+  const { height, vh } = await page.evaluate(() => ({
     height: document.documentElement.scrollHeight,
     vh: innerHeight,
-    y: scrollY,
   }));
-  const target = Math.max(0, (height - vh) * fraction);
-  let delta = target - y;
+  await wheelToY(page, Math.max(0, (height - vh) * fraction));
+}
+
+async function wheelToY(page, target) {
   await page.mouse.move(200, 300);
-  while (Math.abs(delta) > 40) {
-    const step = Math.sign(delta) * Math.min(Math.abs(delta), 400);
-    await page.mouse.wheel({ deltaY: step });
-    await sleep(90);
-    delta -= step;
+  // Wheel-to-pixel gain is 1 on desktop but not under touch emulation, so measure it on
+  // the first round and correct on the next. Up to 3 rounds; a page end stops early.
+  let gain = 1;
+  for (let round = 0; round < 3; round++) {
+    const y0 = await page.evaluate(() => scrollY);
+    const want = target - y0;
+    if (Math.abs(want) <= 40) break;
+    const sent = want / gain;
+    for (let left = sent; Math.abs(left) > 20; ) {
+      const step = Math.sign(left) * Math.min(Math.abs(left), 400);
+      await page.mouse.wheel({ deltaY: step });
+      await sleep(90);
+      left -= step;
+    }
+    await sleep(900);
+    const moved = (await page.evaluate(() => scrollY)) - y0;
+    if (Math.abs(moved) < 20) break;
+    gain = Math.min(5, Math.max(0.2, moved / sent));
   }
-  await sleep(900);
 }
 
 // Everything measured here is computed style from the live DOM, so the DNA
@@ -463,6 +492,119 @@ function measureDNA() {
   };
 }
 
+// Act geometry for --frames: [data-act] if the build marks its acts, else top-level
+// sections. A GSAP pin-spacer is measured instead of the pinned element, because the
+// spacer is what holds the act's scroll distance.
+function findActs() {
+  const marked = [...document.querySelectorAll("[data-act]")];
+  const els = marked.length
+    ? marked
+    : [...document.querySelectorAll("main > *, body > section, main section, body > div > section, footer")];
+  const vh = innerHeight;
+  const seen = new Set();
+  const acts = [];
+  for (const [i, el] of els.entries()) {
+    const box = el.closest(".pin-spacer") || el;
+    if (seen.has(box)) continue;
+    seen.add(box);
+    const r = box.getBoundingClientRect();
+    if (r.height < 40) continue;
+    const top = r.top + scrollY;
+    const label = (el.dataset.act || el.id || el.querySelector("h1, h2, h3")?.textContent || `s${i}`)
+      .trim().toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 32) || `s${i}`;
+    // Short acts get one centred frame; tall (pinned or scrubbed) acts get entry, midpoint, exit.
+    const states = r.height < vh * 1.2
+      ? { view: top - (vh - r.height) / 2 }
+      : { entry: top, midpoint: top + (r.height - vh) / 2, exit: top + r.height - vh };
+    const maxY = document.documentElement.scrollHeight - vh;
+    for (const k in states) states[k] = Math.max(0, Math.min(maxY, states[k]));
+    acts.push({ label, top: Math.round(top), height: Math.round(r.height), hold: el.dataset.verifyHold === "true", states });
+  }
+  return acts.slice(0, 16);
+}
+
+const PASS_SETUP = {
+  desktop: { vp: "desktop" },
+  phone: { vp: "phone" },
+  compact: { vp: "compact" },
+  reduced: { vp: "desktop", reduced: true },
+  nojs: { vp: "desktop", noJs: true },
+  nowebgl: { vp: "desktop", noWebgl: true },
+};
+
+async function captureFrames(url, dir) {
+  const report = { url, capturedAt: new Date().toISOString(), passes: {} };
+  for (const name of passes) {
+    const setup = PASS_SETUP[name];
+    const passDir = join(dir, "frames", name);
+    mkdirSync(passDir, { recursive: true });
+    const page = await browser.newPage();
+    const pass = { acts: [], flags: [], consoleErrors: [], failedRequests: [] };
+    page.on("console", (m) => m.type() === "error" && pass.consoleErrors.push(m.text().slice(0, 300)));
+    page.on("pageerror", (e) => pass.consoleErrors.push(String(e.message || e).slice(0, 300)));
+    page.on("requestfailed", (r) => pass.failedRequests.push(`${r.failure()?.errorText} ${r.url()}`.slice(0, 300)));
+    const vp = { ...VIEWPORTS, ...FRAME_VIEWPORTS }[setup.vp];
+    await page.setViewport(vp);
+    if (vp.isMobile) await page.setUserAgent(PHONE_UA);
+    if (setup.reduced) await page.emulateMediaFeatures([{ name: "prefers-reduced-motion", value: "reduce" }]);
+    if (setup.noJs) await page.setJavaScriptEnabled(false);
+    if (setup.noWebgl)
+      await page.evaluateOnNewDocument(() => {
+        const get = HTMLCanvasElement.prototype.getContext;
+        HTMLCanvasElement.prototype.getContext = function (type, ...rest) {
+          return /webgl/i.test(type) ? null : get.call(this, type, ...rest);
+        };
+      });
+    await page
+      .goto(url, { waitUntil: "networkidle2", timeout: 45000 })
+      .catch((err) => pass.flags.push(`load: ${err.message}`));
+    await sleep(2500);
+    await dismissConsent(page);
+    const acts = await page.evaluate(findActs);
+    // Against the configured width: on a touch viewport, overflow widens innerWidth itself.
+    const overflow = (await page.evaluate(() => document.documentElement.scrollWidth)) - vp.width;
+    if (overflow > 1) pass.flags.push(`horizontal overflow: ${overflow}px`);
+    // Motion is expected to stop without JS or with reduced motion, so stillness is no defect there.
+    const expectMotion = !setup.noJs && !setup.reduced;
+    const vh = vp.height;
+    let n = 0;
+    for (const act of acts) {
+      const frames = [];
+      for (const [state, y] of Object.entries(act.states)) {
+        await wheelToY(page, Math.round(y));
+        const reached = await page.evaluate(() => scrollY);
+        const file = `${String(n++).padStart(2, "0")}-${act.label}-${state}.jpg`;
+        const buf = await page.screenshot({ path: join(passDir, file), type: "jpeg", quality: 72 });
+        frames.push({ state, y: Math.round(y), reached, file, hash: createHash("sha1").update(buf).digest("hex").slice(0, 12) });
+        if (Math.abs(reached - y) > vh / 2)
+          pass.flags.push(`${act.label}/${state}: asked for y=${Math.round(y)}, page is at ${reached} (scroll blocked or jacked?)`);
+      }
+      const still = frames.slice(1).filter((f, i) => f.hash === frames[i].hash).map((f) => f.state);
+      if (expectMotion && !act.hold && still.length)
+        pass.flags.push(`${act.label}: dead scroll, frame unchanged into ${still.join(", ")}`);
+      pass.acts.push({ ...act, frames });
+    }
+    if (!pass.consoleErrors.length) delete pass.consoleErrors;
+    if (!pass.failedRequests.length) delete pass.failedRequests;
+    report.passes[name] = pass;
+    await page.close();
+    contactSheet(passDir, n);
+  }
+  writeFileSync(join(dir, "frames", "report.json"), JSON.stringify(report, null, 2));
+  return Object.fromEntries(Object.entries(report.passes).map(([k, p]) => [k, p.flags.length]));
+}
+
+// Optional: one tiled sheet per pass, so a whole pass can be read in a single image.
+function contactSheet(passDir, count) {
+  if (!count || spawnSync("ffmpeg", ["-version"]).status !== 0) return;
+  const cols = Math.min(count, 6);
+  spawnSync("ffmpeg", [
+    "-y", "-loglevel", "error", "-pattern_type", "glob", "-i", join(passDir, "*.jpg"),
+    "-vf", `scale=480:-2,tile=${cols}x${Math.ceil(count / cols)}:padding=6`, "-frames:v", "1",
+    join(passDir, "sheet.jpg"),
+  ]);
+}
+
 const puppeteer = await loadPuppeteer();
 const browser = await puppeteer.launch({
   executablePath: findChrome(),
@@ -484,6 +626,12 @@ const VIEWPORTS = {
     hasTouch: true,
   },
 };
+// Frame passes only; the reference capture keeps its two viewports.
+const FRAME_VIEWPORTS = {
+  compact: { width: 360, height: 640, deviceScaleFactor: 2, isMobile: true, hasTouch: true },
+};
+const PHONE_UA =
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1";
 
 const summary = [];
 for (const t of targets) {
@@ -507,9 +655,7 @@ for (const t of targets) {
       const page = await browser.newPage();
       await page.setViewport(vp);
       if (name === "phone") {
-        await page.setUserAgent(
-          "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1",
-        );
+        await page.setUserAgent(PHONE_UA);
       }
       await page
         .goto(t.url, { waitUntil: "networkidle2", timeout: 45000 })
@@ -539,6 +685,7 @@ for (const t of targets) {
       record.dna[name] = await page.evaluate(measureDNA);
       await page.close();
     }
+    if (frameMode) record.frameFlags = await captureFrames(t.url, dir);
     record.ok = true;
   } catch (err) {
     record.ok = false;
@@ -550,6 +697,7 @@ for (const t of targets) {
     url: t.url,
     ok: record.ok,
     shots: record.shots.length,
+    frameFlags: record.frameFlags,
     error: record.error,
   });
   console.error(

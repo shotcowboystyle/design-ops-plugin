@@ -10,7 +10,7 @@ onboarding iOS"), URLs to study ("like linear.app and stripe.com"), or nothing (
 Resolve the plugin scripts once:
 
 ```bash
-DESIGN_OPS="${CLAUDE_PLUGIN_ROOT:-$(dirname "$(dirname "$(find ~/.claude/plugins -path '*design_ops*/scripts/capture.mjs' -print -quit)")")}"
+DESIGN_OPS="${CLAUDE_PLUGIN_ROOT:-$(dirname "$(dirname "$(find ~/.claude/plugins -path '*design-ops*/scripts/capture.mjs' -print -quit)")")}"
 ```
 
 ---
@@ -121,3 +121,4 @@ Board saved → .design-ops/refs/board.json (N refs · median jury score X.XX)
 - `/style` — turn the board's direction into a full token system in `.design-ops/style.json`
 - `/page` or `/screen` — build against the board
 - `/grade` — score the build side by side with the references
+- `/scroll` — direct a cinematic scroll site from this board

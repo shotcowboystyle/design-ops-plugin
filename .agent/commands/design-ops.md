@@ -1,6 +1,6 @@
 # Design Ops — Your Design Intelligence System
 
-Welcome to Design Ops. 38 commands. 45 skills. 4 team agents. Vibe coded slop into visual cuisine.
+Welcome to Design Ops. 39 commands. 46 skills. 4 team agents. Vibe coded slop into visual cuisine.
 
 **New here?** Run `/start` instead. It asks one question and routes you — no need to read this map.
 
@@ -34,9 +34,9 @@ Welcome to Design Ops. 38 commands. 45 skills. 4 team agents. Vibe coded slop in
 
 ---
 
-## All 38 Commands
+## All 39 Commands
 
-### MAKE — Design and Build (20)
+### MAKE — Design and Build (21)
 
 Generate visual design systems, screens, components, and production-ready code.
 
@@ -62,6 +62,7 @@ Generate visual design systems, screens, components, and production-ready code.
 | `/generate`   | AI-powered screen generation (Stitch MCP, Fal.ai)                        |
 | `/remix`      | Evidence-based redesign of weak areas                                    |
 | `/figma`      | Figma design-to-code via MCP — extracts tokens, components, layout       |
+| `/scroll`     | Cinematic scroll site — depth planes, real assets, frame-verified        |
 
 ### REVIEW — Evaluate and Improve (7)
 
@@ -164,7 +165,7 @@ One word. Zero config. Complete visual identity.
 
 ---
 
-## 45 Skills (Auto-Invoked)
+## 46 Skills (Auto-Invoked)
 
 Skills activate automatically when relevant. You never need to call them directly.
 
@@ -178,7 +179,7 @@ Skills activate automatically when relevant. You never need to call them directl
 
 **Patterns**: screen-flow-patterns, ui-pattern-intelligence, layout-block-intelligence, page-composition-engine, navigation-pattern-encyclopedia, form-design-encyclopedia, responsive-block-patterns
 
-**Interaction**: interaction-motion-design, animation-recipe-library, performance-states-patterns, ambient-calm-zero-ui
+**Interaction**: interaction-motion-design, animation-recipe-library, scroll-experience-direction, performance-states-patterns, ambient-calm-zero-ui
 
 **Systems**: design-systems-architecture, component-patterns-code, design-token-presets, data-visualization-mastery
 

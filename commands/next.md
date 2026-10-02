@@ -9,9 +9,9 @@ A compact navigation aid that suggests the best next command based on context. N
 
 ## Command Reference
 
-The 38 commands organized by tier:
+The 39 commands organized by tier:
 
-**MAKE** (20): `/fix`, `/style`, `/palette`, `/type`, `/layout`, `/wireframe`, `/screen`, `/component`, `/page`, `/tokens`, `/form`, `/nav`, `/animate`, `/icon`, `/dark`, `/responsive`, `/onboard`, `/generate`, `/remix`, `/figma`
+**MAKE** (21): `/fix`, `/style`, `/palette`, `/type`, `/layout`, `/wireframe`, `/screen`, `/component`, `/page`, `/tokens`, `/form`, `/nav`, `/animate`, `/icon`, `/dark`, `/responsive`, `/onboard`, `/generate`, `/remix`, `/figma`, `/scroll`
 
 **REVIEW** (7): `/audit`, `/roast`, `/grade`, `/qa`, `/a11y`, `/before-after`, `/ai-audit`
 

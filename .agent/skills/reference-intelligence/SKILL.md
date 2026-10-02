@@ -56,7 +56,7 @@ Adapters, one per source:
 Scripts live in the plugin, not the project. Resolve the plugin root once:
 
 ```bash
-DESIGN_OPS="${CLAUDE_PLUGIN_ROOT:-$(dirname "$(dirname "$(find ~/.claude/plugins -path '*design_ops*/scripts/capture.mjs' -print -quit)")")}"
+DESIGN_OPS="${CLAUDE_PLUGIN_ROOT:-$(dirname "$(dirname "$(find ~/.claude/plugins -path '*design-ops*/scripts/capture.mjs' -print -quit)")")}"
 node "$DESIGN_OPS/scripts/awwwards.mjs" technology --awarded --limit 10 --out .design-ops/refs/awwwards-technology.json
 node "$DESIGN_OPS/scripts/capture.mjs" --from .design-ops/refs/awwwards-technology.json --pick slug-a,slug-b,slug-c
 node "$DESIGN_OPS/scripts/capture.mjs" https://linear.app https://stripe.com   # direct URLs
@@ -91,3 +91,4 @@ compare against it.
 - `screen-flow-patterns` — the screen/flow taxonomy used to phrase Mobbin queries
 - `sector-style-intelligence` — sector norms; its "Inspiration Links" seed Mobbin queries
 - `interaction-motion-design`, `animation-recipe-library` — translating captured motion stacks into code
+- `scroll-experience-direction` — cinematic scroll sites sourced and graded through this loop; adds `capture.mjs --frames`

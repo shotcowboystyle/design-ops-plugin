@@ -8,8 +8,8 @@
 |------|---------|----------|
 | `.agent/agent.md` | Agent definition: purpose, owned areas, non-negotiable constraints. **Hand-edited** | file |
 | `.agent/manifest.json` | Plugin metadata plus per-skill (`summary`, `tools`), per-command (`description`, `argumentHint`) and per-agent (`description`, `tools`) metadata. **Hand-edited** | file |
-| `.agent/skills/<name>/` | 45 packaged skills: `SKILL.md` body (no frontmatter) + `references/`. **Hand-edited** | dir |
-| `.agent/commands/<name>.md` | 38 command bodies. **Hand-edited** | dir |
+| `.agent/skills/<name>/` | 46 packaged skills: `SKILL.md` body (no frontmatter) + `references/`. **Hand-edited** | dir |
+| `.agent/commands/<name>.md` | 39 command bodies. **Hand-edited** | dir |
 | `.agent/agents/<name>.md` | 4 subagent bodies (scout, art-director, ux-architect, critic). **Hand-edited** | dir |
 | `skills/`, `commands/`, `agents/` | **Generated** Claude layer (195 reference files mirrored) | `build.py` `render`, `sync_resources` |
 | `.claude-plugin/plugin.json` | **Generated** manifest with explicit component arrays | `build.py` `plugin_json` |

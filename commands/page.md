@@ -767,6 +767,7 @@ When building pages, draw patterns and best practices from:
 
 - `/screen` — Build individual screens (app screens vs. marketing pages)
 - `/component` — Build individual reusable components
+- `/scroll` — A cinematic scroll story instead of a block-stacked page
 - `/responsive` — Deep-dive responsive behavior and breakpoint testing
 - `/roast` — Jump to REVIEW to critique your page
 - `/design-ops` — See the full command list

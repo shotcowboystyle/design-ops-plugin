@@ -9,8 +9,8 @@
 - Commands (all pass at the 2026-10-02 snapshot):
 
 ```bash
-python3 scripts/build.py --check          # generated layer matches .agent/ (90 files)
-python3 scripts/validate-plugin.py        # 45 skills, 195 refs, 38 commands, 0 errors, 5 warnings
+python3 scripts/build.py --check          # generated layer matches .agent/ (92 files)
+python3 scripts/validate-plugin.py        # 46 skills, 202 refs, 39 commands, 0 errors, 5 warnings
 claude plugin validate .
 python3 scripts/check-corpus.py all       # graph | shape | routing | budget — 0 errors, 6 warnings
 python3 scripts/check-corpus.py all --update-baseline   # accept intentional growth
